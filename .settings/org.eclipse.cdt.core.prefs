@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/com.android.toolchain.gcc.1217176058/NDK_ROOT/delimiter=\:
+environment/project/com.android.toolchain.gcc.1217176058/NDK_ROOT/operation=append
+environment/project/com.android.toolchain.gcc.1217176058/NDK_ROOT/value=/home/likewise-open/FRAMGIA/nguyen.thanh.cong/Work/Android/android-ndk-linux/android-ndk-r10e
+environment/project/com.android.toolchain.gcc.1217176058/append=true
+environment/project/com.android.toolchain.gcc.1217176058/appendContributed=true

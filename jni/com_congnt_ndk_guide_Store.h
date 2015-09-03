@@ -14,3 +14,17 @@ JNIEXPORT jstring JNICALL Java_com_congnt_ndkguide_Store_getString(JNIEnv *env,
 		jobject pThis, jstring pString);
 JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_setString(JNIEnv *env,
 		jobject pThis, jstring pKey, jstring pString);
+
+JNIEXPORT jobject JNICALL Java_com_congnt_ndkguide_Store_getColor(JNIEnv* pEnv, jobject pThis, jstring pKey);
+
+JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_setColor(JNIEnv* pEnv, jobject pThis, jstring pKey, jobject pColor);
+
+
+JNIEXPORT jintArray JNICALL Java_com_congnt_ndkguide_Store_getIntegerArray(JNIEnv* pEnv, jobject pThis, jstring pKey);
+
+JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_setIntegerArray(
+		JNIEnv* pEnv, jobject pThis, jstring pKey, jintArray pIntegerArray);
+
+
+
+
