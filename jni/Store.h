@@ -11,7 +11,7 @@
 #include <jni.h>
 #include <stdint.h>
 
-#endif /* STORE_H_ */
+
 #define STORE_MAX_CAPACITY 16
 #ifndef NULL
 #define NULL   ((void *) 0)
@@ -54,3 +54,4 @@ void releaseEntryValue(JNIEnv* pEnv, StoreEntry* pEntry);
 void throwInvalidTypeException(JNIEnv* pEnv);
 void throwNotExistingKeyException(JNIEnv* pEnv);
 void throwStoreFullException(JNIEnv* pEnv);
+#endif /* STORE_H_ */

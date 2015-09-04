@@ -5,7 +5,8 @@
  *      Author: FRAMGIA\nguyen.thanh.cong
  */
 #include <jni.h>
-
+JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_initializeStore(JNIEnv* pEnv, jobject pThis);
+JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_finalizeStore(JNIEnv* pEnv, jobject pThis);
 JNIEXPORT jint JNICALL Java_com_congnt_ndkguide_Store_getInteger(JNIEnv *env,
 		jobject pThis, jstring pString);
 JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_setInteger(JNIEnv *env,
@@ -28,3 +29,4 @@ JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_setIntegerArray(
 JNIEXPORT jobjectArray JNICALL Java_com_congnt_ndkguide_Store_getColorArray(JNIEnv* pEnv, jobject pThis, jstring pKey);
 
 JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_setColorArray(JNIEnv* pEnv, jobject pThis, jstring pKey,jobjectArray pObjectArray);
+

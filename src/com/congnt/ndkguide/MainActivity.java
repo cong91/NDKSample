@@ -22,8 +22,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+@SuppressWarnings("deprecation")
 @SuppressLint("NewApi")
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements StoreListener {
     private EditText mUIKeyEdit, mUIValueEdit;
     private Spinner mUITypeSpinner;
     private Store mStore;
@@ -33,9 +34,10 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUIKeyEdit = (EditText) findViewById(R.id.key);
+        mUIKeyEdit.setText("watcherCounter");
         mUIValueEdit = (EditText) findViewById(R.id.value);
         mUITypeSpinner = (Spinner) findViewById(R.id.sniper_type);
-        mStore = new Store();
+        mStore = new Store(this);
         mUITypeSpinner.setAdapter(new ArrayAdapter<StoreType>(this,
             android.R.layout.simple_spinner_item, StoreType.values()));
     }
@@ -57,6 +59,21 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    @Override
+    protected void onStart() {
+        // TODO Auto-generated method stub
+        super.onStart();
+        mStore.initializeStore();
+        mStore.setInteger("watcherCounter", 0);
+    }
+    
+    @Override
+    protected void onStop() {
+        // TODO Auto-generated method stub
+        super.onStop();
+        mStore.finalizeStore();
     }
     
     public void setValueOnClick(View v) {
@@ -147,5 +164,20 @@ public class MainActivity extends ActionBarActivity {
         String[] lSplitArray = pValue.split(";");
         List<String> lSplitList = Arrays.asList(lSplitArray);
         return Lists.transform(lSplitList, pConversion);
+    }
+    
+    @Override
+    public void onAlert(int pValue) {
+        displayError(String.format("%1$d is not an allowed integer", pValue));
+    }
+    
+    @Override
+    public void onAlert(String pValue) {
+        displayError(String.format("%1$s is not an allowed string", pValue));
+    }
+    
+    @Override
+    public void onAlert(Color pValue) {
+        displayError(String.format("%1$s is not an allowed color", pValue.toString()));
     }
 }
