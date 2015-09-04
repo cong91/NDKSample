@@ -84,13 +84,14 @@ JNIEXPORT jintArray JNICALL Java_com_congnt_ndkguide_Store_getIntegerArray(
 	StoreEntry* lEntry = findEntry(pEnv, &gStore, pKey, NULL);
 	if (isEntryValid(pEnv, lEntry, StoreType_ArrayInteger)) {
 		jintArray lJavaArray = (*pEnv)->NewIntArray(pEnv, lEntry->mLength);
-		if (lJavaArray == NULL)
+		if (lJavaArray == NULL){
 			return;
+		}
 		(*pEnv)->SetIntArrayRegion(pEnv, lJavaArray, 0, lEntry->mLength,
 				lEntry->mValue.mIntegerArray);
 		return lJavaArray;
 	} else {
-		return NULL ;
+		return NULL;
 	}
 }
 JNIEXPORT void JNICALL Java_com_congnt_ndkguide_Store_setIntegerArray(
